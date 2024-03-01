@@ -1,0 +1,542 @@
+@font-face {
+  font-family: 'Farenheight';
+  src: url('./assets/fonts/farenheight.ttf') format('truetype'); /* Chrome 4+, Firefox 3.5, Opera 10+, Safari 3—5 */
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+}
+
+:root {
+  --first-color: #00f3f1;
+  --second-color: #edf5ff;
+  --third-color: #ff3232;
+  --background: #050b19;
+  --accent: #7f3dd5;
+  --first-place: #ffc130;
+  --second-place: #fda98f;
+  --third-place: #5dd7eb;
+  --first-place-podium: #ffc130a1;
+  --second-place-podium: #fda98fa1;
+  --third-place-podium: #5dd7eba1;
+}
+
+a:hover,
+a:visited,
+a:link,
+a:active {
+  text-decoration: none;
+}
+
+html,
+body {
+  margin: 0px;
+  height: 100%;
+  background-color: var(--background);
+}
+
+body {
+  padding: 1%;
+  display: flex;
+  flex-direction: row;
+  overflow-y: hidden;
+}
+
+.ieee-logo > img {
+  max-width: 105px;
+  max-height: 105px;
+  transform: translate(-35%);
+}
+
+.left {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+  width: 25%;
+  height: 100vh;
+  z-index: 15;
+}
+.vertical-rule {
+  width: 5px;
+  background-color: black;
+  height: 220%;
+  align-self: center;
+  justify-self: center;
+  background-color: var(--second-color);
+}
+.option {
+  font-size: 1.5rem;
+  display: flex;
+  flex-direction: row;
+  justify-content: start;
+  gap: 3rem;
+  color: var(--second-color);
+  cursor: pointer;
+}
+.navbar {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  width: 65%;
+  height: 100%;
+  padding-top: 20px;
+  padding-left: 10%;
+}
+
+.segment,
+.index {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 300ms ease-in-out, color 300ms ease-in;
+}
+
+.option:hover .index {
+  background: linear-gradient(
+    90deg,
+    var(--first-color),
+    var(--second-color),
+    #fff
+  );
+  background-size: 300%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.option:hover .segment,
+.index {
+  transform: scale(1.05);
+}
+
+.option:hover .segment {
+  background: linear-gradient(
+    90deg,
+    var(--second-color),
+    #fd6161,
+    #ff4444,
+    var(--third-color)
+  );
+  background-size: 100%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+/* Right half */
+.right {
+  scroll-behavior: smooth;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  gap: 7rem;
+  width: 75%;
+  height: 700px;
+  z-index: 15;
+  overflow-y: auto;
+}
+/* Home section */
+.home {
+  margin-top: 4rem;
+  color: var(--second-color);
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: 1fr 4fr;
+  width: 85%;
+  height: 70vh;
+  justify-self: center;
+  align-self: center;
+}
+.registration {
+  justify-self: center;
+  display: flex;
+  flex-direction: column;
+}
+.registration > h2 {
+  font-size: 2.5rem;
+}
+.registration > h4 {
+  font-size: 1rem;
+}
+.register-button {
+  position: relative;
+  text-align: center;
+  background-color: transparent;
+  padding: 5px;
+  border: #edf5ff 2px solid;
+  border-radius: 0.5rem;
+  color: var(--second-color);
+  font-size: 1.6rem;
+  cursor: pointer;
+  transition: transform 300ms ease-in-out;
+}
+.register-button:hover {
+  background: linear-gradient(
+    70deg,
+    var(--first-color),
+    var(--first-color),
+    var(--second-color),
+    var(--third-color),
+    var(--third-color)
+  );
+  background-size: 100%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  transform: scale(1.02);
+}
+.home > h1 {
+  text-align: center;
+  font-family: Farenheight;
+  grid-column: 1/3;
+  font-size: 5rem;
+}
+.logo > img {
+  align-self: center;
+  transform: translate(50%);
+  height: 230px;
+  width: 300px;
+}
+
+/* About section */
+.about {
+  color: var(--second-color);
+  width: 85%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 10vh;
+}
+.about > h1 {
+  text-align: center;
+  font-family: Farenheight;
+  font-size: 3rem;
+}
+.about > p {
+  font-size: 1.2rem;
+}
+
+/* Domains */
+
+.domains {
+  color: var(--second-color);
+  width: 85%;
+  gap: 3rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 10vh;
+}
+.domains > h1 {
+  text-align: center;
+  font-family: Farenheight;
+  font-size: 3rem;
+}
+.tracks {
+  width: 100%;
+  display: flex;
+  justify-content: space-evenly;
+}
+.domain {
+  padding: 2px;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: end;
+  padding-bottom: 10px;
+  align-items: center;
+  height: 200px;
+  width: 170px;
+  border: 3px var(--second-color) solid;
+  border-radius: 12px;
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  overflow: hidden;
+  transition: transform 300ms ease-in-out;
+}
+.domain > .name {
+  font-size: 1.1rem;
+  text-overflow: ellipsis;
+  color: var(--second-color);
+  font-weight: 600;
+}
+.domain > .info {
+  top: 0px;
+  display: none;
+  justify-content: center;
+  align-items: center;
+  backdrop-filter: blur(5px);
+  width: 100%;
+  height: 250px;
+  position: absolute;
+  text-align: center;
+  background-color: #050b196e;
+}
+.domain:hover {
+  transform: scale(1.05);
+}
+.domain:hover .info {
+  display: flex;
+}
+
+/* Prizes */
+.prizes {
+  color: var(--second-color);
+  width: 85%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 10vh;
+}
+.prizes > h1 {
+  text-align: center;
+  font-family: Farenheight;
+  font-size: 3rem;
+}
+.prize-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(6, 1fr);
+  width: 75%;
+  height: 75%;
+  column-gap: 3px;
+  align-items: center;
+  justify-content: center;
+}
+.first-black,
+.second-black,
+.third-black {
+  border-radius: 5px 5px 0px 0px;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 3vw;
+  transition: box-shadow 200ms ease-in-out;
+}
+.first-black {
+  color: var(--first-place);
+  background-color: var(--first-place-podium);
+  border-top: 10px var(--first-place) solid;
+  grid-column: 2/3;
+  grid-row: 3/7;
+}
+.first-black:hover {
+  box-shadow: 0 0 28px -5px var(--first-place);
+}
+.second-black {
+  color: var(--second-place);
+  background-color: var(--second-place-podium);
+  border-top: 10px var(--second-place) solid;
+  grid-column: 3/4;
+  grid-row: 5/7;
+}
+.second-black:hover {
+  box-shadow: 0 0 28px -5px var(--second-place);
+}
+.third-black {
+  color: var(--third-place);
+  background-color: var(--third-place-podium);
+  border-top: 10px var(--third-place) solid;
+  grid-column: 1/2;
+  grid-row: 6/7;
+}
+.third-black:hover {
+  box-shadow: 0 0 28px -5px var(--third-place);
+}
+.prize-grid > h4 {
+  text-align: center;
+  font-size: 1.6rem;
+}
+
+/* Timeline */
+.timeline {
+  color: var(--second-color);
+  width: 85%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 10vh;
+}
+.timeline > h1 {
+  text-align: center;
+  font-family: Farenheight;
+  font-size: 3rem;
+}
+.timeline-grid {
+  position: relative;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+  width: 80%;
+  height: 90%;
+  gap: 6rem;
+}
+.timeline-grid > .line {
+  position: absolute;
+  width: 74%;
+  height: 60%;
+  margin-top: auto;
+  margin-bottom: auto;
+  margin-left: auto;
+  margin-right: auto;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  border: 5px var(--second-color) solid;
+  border-left: none;
+  z-index: -1;
+}
+.bubble {
+  background-color: #00dada;
+  place-self: center;
+  color: var(--background);
+  width: 10rem;
+  height: 10rem;
+  border-radius: 50%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  transition: outline 100ms ease-in-out, filter 100ms ease-in-out,
+    transform 200ms ease-in-out, box-shadow 50ms ease-in;
+  box-shadow: 0 0 60px -30px #00f3f1;
+}
+.bubble > .date {
+  font-size: 2.5rem;
+  font-weight: 700;
+}
+.bubble > .detail {
+  text-align: center;
+  font-weight: 450;
+  font-size: 0.9rem;
+}
+.bubble:hover {
+  transform: scale(1.05);
+  filter: brightness(70%);
+  outline-offset: 2px;
+  outline-width: 3px;
+  outline-color: #fff;
+  outline-style: dotted;
+  box-shadow: 0 0 60px -10px #00bebe;
+}
+
+.guidelines {
+  color: var(--second-color);
+  width: 85%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 10vh;
+}
+.guidelines > h1 {
+  text-align: center;
+  font-family: Farenheight;
+  font-size: 3rem;
+}
+.guidelines > ul {
+  font-size: 1.3rem;
+  display: flex;
+  width: 90%;
+  height: 100%;
+  gap: 1rem;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+/* Sponsors */
+.sponsors {
+  color: var(--second-color);
+  width: 85%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 10vh;
+}
+.sponsors > h1 {
+  text-align: center;
+  font-family: Farenheight;
+  font-size: 3rem;
+}
+/* The flip card container - set the width and height to whatever you want. We have added the border property to demonstrate that the flip itself goes out of the box on hover (remove perspective if you don't want the 3D effect */
+.flip-card {
+  background-color: transparent;
+  width: 200px;
+  height: 200px;
+  perspective: 1000px; /* Remove this if you don't want the 3D effect */
+}
+
+/* This container is needed to position the front and back side */
+.flip-card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  transition: transform 0.8s;
+  transform-style: preserve-3d;
+}
+
+/* Do an horizontal flip when you move the mouse over the flip box container */
+.flip-card:hover .flip-card-inner {
+  transform: rotateY(180deg);
+}
+
+/* Position the front and back side */
+.flip-card-front,
+.flip-card-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  -webkit-backface-visibility: hidden; /* Safari */
+  backface-visibility: hidden;
+}
+
+/* Style the front side (fallback if image is missing) */
+.flip-card-front {
+  background-color: var(--accent);
+  color: var(--second-color);
+}
+
+/* Style the back side */
+.flip-card-back {
+  border: 3px var(--first-color) solid;
+  background-color: rgb(69, 69, 69);
+  color: var(--first-color);
+  transform: rotateY(180deg);
+}
+.flip-card-back > button {
+  font-size: 1.2rem;
+  background-color: transparent;
+  border: none;
+  border-radius: 5px;
+  outline: 2px solid var(--third-place);
+  color: inherit;
+  cursor: pointer;
+  transition: all 300ms ease-in-out;
+}
+.flip-card-back > button:hover {
+  background-color: var(--third-place);
+  color: rgb(69, 69, 69);
+}
+
+/* Particles css */
+#particles-js {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0px;
+  left: 0px;
+  z-index: 0;
+}
