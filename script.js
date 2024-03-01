@@ -62,6 +62,7 @@ particlesJS(
         random: true,
         straight: false,
         out_mode: 'out',
+        bounce: true,
         attract: {
           enable: false,
           rotateX: 600,
@@ -70,7 +71,7 @@ particlesJS(
       },
     },
     interactivity: {
-      detect_on: 'canvas',
+      detect_on: 'window',
       events: {
         onhover: {
           enable: true,
@@ -193,6 +194,21 @@ const timeline = (function () {
   return { create };
 })();
 timeline.create();
+
+const faqHeaders = document.querySelectorAll('.faq .faq-header');
+faqHeaders.forEach((faqHeader, i) => {
+  faqHeader.addEventListener('click', () => {
+    location.href = '#faqs-container';
+    faqHeader.nextElementSibling.classList.toggle('active');
+    faqHeader.parentElement.classList.toggle('active');
+    const open = faqHeader.querySelector('.open');
+    const close = faqHeader.querySelector('.close');
+    open.classList.toggle('active');
+    close.classList.toggle('active');
+  });
+});
+
+//Particles
 particlesJS.load('particles-js', 'particles.json', function () {
   console.log('callback - particles.js config loaded');
 });
