@@ -60,7 +60,7 @@ body {
   z-index: 15;
 }
 .vertical-rule {
-  width: 5px;
+  min-width: 5px;
   background-color: black;
   height: 220%;
   align-self: center;
@@ -75,6 +75,16 @@ body {
   gap: 3rem;
   color: var(--second-color);
   cursor: pointer;
+}
+.index {
+  flex-shrink: 0;
+  width: 33px;
+  text-align: center;
+}
+
+.option i {
+  width: 25px;
+  height: 25px;
 }
 .navbar {
   display: flex;

@@ -78,7 +78,7 @@ particlesJS(
           mode: 'bubble',
         },
         onclick: {
-          enable: true,
+          enable: false,
           mode: 'push',
         },
         resize: true,
@@ -101,7 +101,7 @@ particlesJS(
           distance: 200,
         },
         push: {
-          particles_nb: 4,
+          particles_nb: 1,
         },
         remove: {
           particles_nb: 2,
@@ -121,14 +121,14 @@ particlesJS(
 );
 
 const navbarElements = [
-  'Home',
-  'About',
-  'Domains',
-  'Prizes',
-  'Timeline',
-  'Guidelines',
-  'Sponsors',
-  'FAQs',
+  { name: 'Home', icon: '<i class="fa-solid fa-house"></i>' },
+  { name: 'About', icon: '<i class="fa-solid fa-circle-info"></i>' },
+  { name: 'Domains', icon: '<i class="fa-solid fa-database"></i>' },
+  { name: 'Prizes', icon: '<i class="fa-solid fa-medal"></i>' },
+  { name: 'Timeline', icon: '<i class="fa-solid fa-timeline"></i>' },
+  { name: 'Guidelines', icon: '<i class="fa-solid fa-scale-balanced"></i>' },
+  { name: 'Sponsors', icon: '<i class="fa-solid fa-store"></i>' },
+  { name: 'FAQs', icon: '<i class="fa-solid fa-circle-question"></i>' },
 ];
 const events = [
   { day: '01', detail: 'Registration starts' },
@@ -156,11 +156,11 @@ const navbar = (function () {
     vertRule.classList.add('vertical-rule');
     header.classList.add('segment');
 
-    element.setAttribute('href', `#${group.toLowerCase()}`);
+    element.setAttribute('href', `#${group.name.toLowerCase()}`);
     element.classList.add('option');
 
-    indexNumber.textContent = index;
-    header.textContent = group;
+    indexNumber.innerHTML = group.icon;
+    header.textContent = group.name;
 
     element.append(indexNumber, vertRule, header);
     navbar.appendChild(element);
