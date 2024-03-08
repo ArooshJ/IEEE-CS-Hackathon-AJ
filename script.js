@@ -132,12 +132,31 @@ const navbarElements = [
 ];
 const events = [
   { day: '01', detail: 'Registration starts' },
-  { day: '10', detail: 'Registration ends' },
-  { day: '15', detail: 'Shortlisted teams annouced' },
+  { day: '13', detail: 'Registration ends' },
+  { day: '16', detail: 'Shortlisted teams annouced' },
   { day: '23', detail: 'Event concludes' },
   { day: '22', detail: 'Event starts' },
   { day: '20', detail: 'Problem statements released' },
 ];
+
+const colabs = [
+  {logo : './assets/imgs/ieee_cs_logo.jpg', name: 'Dwarkadas Jivanlal Sanghavi College of Engineering - Mumbai'},
+  {logo : './assets/imgs/ieee_cs_logo.jpg', name: 'Fr. Conceição Rodrigues College of Engineering (CRCE) - Mumbai'},
+  {logo : './assets/imgs/ieee_cs_logo.jpg', name: 'Ramrao Adik Institute of Technology (RAIT) - Navi Mumbai'},
+  {logo : './assets/imgs/ieee_cs_logo.jpg', name: 'Sardar Patel Institute of Technology, Mumbai'},
+  {logo : './assets/imgs/ieee_cs_logo.jpg', name: 'Annasaheb Dange College of Engineering and Technology (ADCET) - Sangli'},
+  {logo : './assets/imgs/ieee_cs_logo.jpg', name: 'SVERI\'s College of Engineering - Pandharpur'},
+  {logo : './assets/imgs/ieee_cs_logo.jpg', name: 'Amrutvahini College of Engineering - Sangamner'},
+]
+const orgs = [
+  {logo : './assets/imgs/ieee_cs_logo.jpg', name: 'IEEE Bombay Section'},
+  {logo : './assets/imgs/ieee_cs_logo.jpg', name: 'IEEE Computer Society Bombay Section'},
+  {logo : './assets/imgs/ieee_cs_logo.jpg', name: 'IEEE CS SPIT'},
+  {logo : './assets/imgs/ieee_cs_logo.jpg', name: 'IIC SPIT'}
+  // {logo : './assets/imgs/ieee_cs_logo.jpg', name: 'Annasaheb Dange College of Engineering and Technology (ADCET) - Sangli'},
+  // {logo : './assets/imgs/ieee_cs_logo.jpg', name: 'SVERI\'s College of Engineering - Pandharpur'},
+  // {logo : './assets/imgs/ieee_cs_logo.jpg', name: 'Amrutvahini College of Engineering - Sangamner'},
+]
 
 const navbar = (function () {
   const create = () => {
@@ -149,25 +168,86 @@ const navbar = (function () {
     const navbar = document.querySelector('.navbar');
     const element = document.createElement('a');
     const indexNumber = document.createElement('div');
-    const vertRule = document.createElement('div');
+    // const vertRule = document.createElement('div');
     const header = document.createElement('div');
 
     indexNumber.classList.add('index');
-    vertRule.classList.add('vertical-rule');
+    // vertRule.classList.add('vertical-rule');
     header.classList.add('segment');
 
-    element.setAttribute('href', `#${group.name.toLowerCase()}`);
+    element.setAttribute('href',`#${group.name.toLowerCase()}`);
     element.classList.add('option');
 
     indexNumber.innerHTML = group.icon;
     header.textContent = group.name;
 
-    element.append(indexNumber, vertRule, header);
+    element.append(indexNumber, header);
     navbar.appendChild(element);
   };
   return { create };
 })();
 navbar.create();
+
+
+const collaborators = (function(){
+  const create = () =>{
+    for(let i = 0;i<colabs.length;i++){
+      addInst(colabs[i],i);
+    }
+  }
+  const addInst = (Institute, i)=>{
+    const colab = document.querySelector('.collaborators')
+    const colabLogo = document.createElement('img')
+    const Name = document.createElement('div')
+    const container = document.createElement('div')
+   
+
+    //colabLogo =classList.add('colabLogo')
+    colabLogo.setAttribute('src', Institute.logo)
+    // colabLogo.setAttribute('alt', 'Institute-Logo')
+    Name.textContent = Institute.name
+    container.classList.add('colabContainer')
+    Name.classList.add('colabName')
+    colabLogo.classList.add('colabLogo')
+   
+   container.append(colabLogo, Name)
+   colab.appendChild(container)
+
+
+  };
+  return({create});
+})();
+collaborators.create();
+
+const organizers = (function(){
+  const create = () =>{
+    for(let i = 0;i<orgs.length;i++){
+      addInst(orgs[i],i);
+    }
+  }
+  const addInst = (Institute, i)=>{
+    const colab = document.querySelector('.logos')
+    const colabLogo = document.createElement('img')
+    const Name = document.createElement('div')
+    const container = document.createElement('div')
+   
+
+    //colabLogo =classList.add('colabLogo')
+    colabLogo.setAttribute('src', Institute.logo)
+    // colabLogo.setAttribute('alt', 'Institute-Logo')
+    Name.textContent = Institute.name
+    container.classList.add('orgContainer')
+    Name.classList.add('orgName')
+    colabLogo.classList.add('orgLogo')
+   
+   container.append(colabLogo, Name)
+   colab.appendChild(container)
+
+
+  };
+  return({create});
+})();
+organizers.create();
 
 const timeline = (function () {
   const create = () => {
@@ -179,16 +259,20 @@ const timeline = (function () {
     const timelineGrid = document.querySelector('.timeline-grid');
     const bubble = document.createElement('div');
     const date = document.createElement('div');
+    const month = document.createElement('div');
     const detail = document.createElement('div');
 
     bubble.classList.add('bubble');
     date.classList.add('date');
     detail.classList.add('detail');
-
+    month.classList.add('month');
+     
+    
     date.textContent = event.day;
     detail.textContent = event.detail;
-
-    bubble.append(date, detail);
+    month.textContent = 'March'
+   
+    bubble.append(date, month, detail);
     timelineGrid.appendChild(bubble);
   };
   return { create };
