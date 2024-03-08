@@ -140,19 +140,20 @@ const events = [
 ];
 
 const colabs = [
-  {logo : './assets/imgs/ieee_cs_logo.jpg', name: 'Dwarkadas Jivanlal Sanghavi College of Engineering - Mumbai'},
-  {logo : './assets/imgs/ieee_cs_logo.jpg', name: 'Fr. Conceição Rodrigues College of Engineering (CRCE) - Mumbai'},
-  {logo : './assets/imgs/ieee_cs_logo.jpg', name: 'Ramrao Adik Institute of Technology (RAIT) - Navi Mumbai'},
-  {logo : './assets/imgs/ieee_cs_logo.jpg', name: 'Sardar Patel Institute of Technology, Mumbai'},
-  {logo : './assets/imgs/ieee_cs_logo.jpg', name: 'Annasaheb Dange College of Engineering and Technology (ADCET) - Sangli'},
-  {logo : './assets/imgs/ieee_cs_logo.jpg', name: 'SVERI\'s College of Engineering - Pandharpur'},
-  {logo : './assets/imgs/ieee_cs_logo.jpg', name: 'Amrutvahini College of Engineering - Sangamner'},
+  {logo : './assets/imgs/ieee_cs_logo.jpg', name: 'Dwarkadas Jivanlal Sanghavi College of Engineering - Mumbai', link: ""},
+  {logo : './assets/imgs/ieee_cs_logo.jpg', name: 'Fr. Conceição Rodrigues College of Engineering (CRCE) - Mumbai', link:""},
+  {logo : './assets/imgs/ieee_cs_logo.jpg', name: 'Ramrao Adik Institute of Technology (RAIT) - Navi Mumbai',link:""},
+  
+  {logo : './assets/imgs/ieee_cs_logo.jpg', name: 'Annasaheb Dange College of Engineering and Technology (ADCET) - Sangli',link:""},
+  {logo : './assets/imgs/ieee_cs_logo.jpg', name: 'SVERI\'s College of Engineering - Pandharpur',link:""},
+  {logo : './assets/imgs/ieee_cs_logo.jpg', name: 'Amrutvahini College of Engineering - Sangamner',link:""},
 ]
 const orgs = [
-  {logo : './assets/imgs/ieee_cs_logo.jpg', name: 'IEEE Bombay Section'},
-  {logo : './assets/imgs/ieee_cs_logo.jpg', name: 'IEEE Computer Society Bombay Section'},
-  {logo : './assets/imgs/ieee_cs_logo.jpg', name: 'IEEE CS SPIT'},
-  {logo : './assets/imgs/ieee_cs_logo.jpg', name: 'IIC SPIT'}
+  {logo : './assets/imgs/ieee_cs_logo.jpg', name: 'IEEE Bombay Section',link:""},
+  {logo : './assets/imgs/ieee_cs_logo.jpg', name: 'IEEE Computer Society Bombay Section',link:""},
+  {logo : './assets/imgs/ieee_cs_logo.jpg', name: 'IEEE CS SPIT',link:""},
+  {logo : './assets/imgs/ieee_cs_logo.jpg', name: 'Sardar Patel Institute of Technology, Mumbai',link:"https://www.spit.ac.in/"},
+  {logo : './assets/imgs/ieee_cs_logo.jpg', name: 'IIC SPIT',link:""}
   // {logo : './assets/imgs/ieee_cs_logo.jpg', name: 'Annasaheb Dange College of Engineering and Technology (ADCET) - Sangli'},
   // {logo : './assets/imgs/ieee_cs_logo.jpg', name: 'SVERI\'s College of Engineering - Pandharpur'},
   // {logo : './assets/imgs/ieee_cs_logo.jpg', name: 'Amrutvahini College of Engineering - Sangamner'},
@@ -199,18 +200,21 @@ const collaborators = (function(){
     const colab = document.querySelector('.collaborators')
     const colabLogo = document.createElement('img')
     const Name = document.createElement('div')
-    const container = document.createElement('div')
+    const container = document.createElement('a')
    
 
     //colabLogo =classList.add('colabLogo')
     colabLogo.setAttribute('src', Institute.logo)
+    container.setAttribute('href',Institute.link)
+
     // colabLogo.setAttribute('alt', 'Institute-Logo')
     Name.textContent = Institute.name
     container.classList.add('colabContainer')
     Name.classList.add('colabName')
     colabLogo.classList.add('colabLogo')
    
-   container.append(colabLogo, Name)
+   container.appendChild(colabLogo)
+   container.appendChild(Name)
    colab.appendChild(container)
 
 
@@ -229,18 +233,20 @@ const organizers = (function(){
     const colab = document.querySelector('.logos')
     const colabLogo = document.createElement('img')
     const Name = document.createElement('div')
-    const container = document.createElement('div')
+    const container = document.createElement('a')
    
 
     //colabLogo =classList.add('colabLogo')
     colabLogo.setAttribute('src', Institute.logo)
+    container.setAttribute('href',Institute.link)
     // colabLogo.setAttribute('alt', 'Institute-Logo')
     Name.textContent = Institute.name
     container.classList.add('orgContainer')
     Name.classList.add('orgName')
     colabLogo.classList.add('orgLogo')
    
-   container.append(colabLogo, Name)
+    container.appendChild(colabLogo)
+    container.appendChild(Name)
    colab.appendChild(container)
 
 
