@@ -130,7 +130,7 @@ const navbarElements = [
   { name: 'Sponsors', icon: '<i class="fa-solid fa-store"></i>' },
   { name: 'FAQs', icon: '<i class="fa-solid fa-circle-question"></i>' },
 ];
-const events = [
+let events = [
   { day: '01', detail: 'Registration starts' },
   { day: '13', detail: 'Registration ends' },
   { day: '16', detail: 'Shortlisted teams annouced' },
@@ -139,21 +139,53 @@ const events = [
   { day: '20', detail: 'Problem statements released' },
 ];
 
+function rearrangeEventsForMobile() {
+  // Check if the screen width is below a certain threshold (e.g., 768 pixels)
+  if (window.innerWidth <= 768) {
+    // Rearrange the array as needed
+    events = [
+      { day: '01', detail: 'Registration starts' },
+      { day: '13', detail: 'Registration ends' },
+      { day: '16', detail: 'Shortlisted teams annouced' },
+      { day: '20', detail: 'Problem Statements released' },
+      { day: '22', detail: 'Event starts' },
+      { day: '23', detail: 'Event Concludes' },
+    ];
+  }
+  else{
+    events = [
+      { day: '01', detail: 'Registration starts' },
+      { day: '13', detail: 'Registration ends' },
+      { day: '16', detail: 'Shortlisted teams annouced' },
+      { day: '23', detail: 'Event concludes' },
+      { day: '22', detail: 'Event starts' },
+      { day: '20', detail: 'Problem statements released' },
+    ];
+  }
+}
+
+// Call the function when the page loads
+
+rearrangeEventsForMobile();
+
+// You can also call the function on window resize if needed
+window.addEventListener('resize', rearrangeEventsForMobile);
+
 const colabs = [
-  {logo : './assets/imgs/ieee_cs_logo.jpg', name: 'Dwarkadas Jivanlal Sanghavi College of Engineering - Mumbai', link: ""},
-  {logo : './assets/imgs/ieee_cs_logo.jpg', name: 'Fr. Conceição Rodrigues College of Engineering (CRCE) - Mumbai', link:""},
-  {logo : './assets/imgs/ieee_cs_logo.jpg', name: 'Ramrao Adik Institute of Technology (RAIT) - Navi Mumbai',link:""},
+  {logo : './assets/imgs/DJSCE_Logo.png', name: 'Dwarkadas Jivanlal Sanghavi College of Engineering - Mumbai', link: ""},
+  {logo : './assets/imgs/fcrcoe.png', name: 'Fr. Conceição Rodrigues College of Engineering (CRCE) - Mumbai', link:""},
+  {logo : './assets/imgs/Ramrao_Adik_Institute_of_Technology.png', name: 'Ramrao Adik Institute of Technology (RAIT) - Navi Mumbai',link:""},
   
-  {logo : './assets/imgs/ieee_cs_logo.jpg', name: 'Annasaheb Dange College of Engineering and Technology (ADCET) - Sangli',link:""},
-  {logo : './assets/imgs/ieee_cs_logo.jpg', name: 'SVERI\'s College of Engineering - Pandharpur',link:""},
-  {logo : './assets/imgs/ieee_cs_logo.jpg', name: 'Amrutvahini College of Engineering - Sangamner',link:""},
+  {logo : './assets/imgs/ADCET.jpg', name: 'Annasaheb Dange College of Engineering and Technology (ADCET) - Sangli',link:""},
+  {logo : './assets/imgs/sveri.png', name: 'SVERI\'s College of Engineering - Pandharpur',link:""},
+  {logo : './assets/imgs/AVCOE.png', name: 'Amrutvahini College of Engineering - Sangamner',link:""},
 ]
 const orgs = [
-  {logo : './assets/imgs/ieee_cs_logo.jpg', name: 'IEEE Bombay Section',link:""},
-  {logo : './assets/imgs/ieee_cs_logo.jpg', name: 'IEEE Computer Society Bombay Section',link:""},
+  {logo : './assets/imgs/ieee-bs.png', name: 'IEEE Bombay Section',link:""},
+  {logo : './assets/imgs/ieeecs.png', name: 'IEEE Computer Society Bombay Section',link:""},
   {logo : './assets/imgs/ieee_cs_logo.jpg', name: 'IEEE CS SPIT',link:""},
-  {logo : './assets/imgs/ieee_cs_logo.jpg', name: 'Sardar Patel Institute of Technology, Mumbai',link:"https://www.spit.ac.in/"},
-  {logo : './assets/imgs/ieee_cs_logo.jpg', name: 'IIC SPIT',link:""}
+  {logo : './assets/imgs/SPIT.png', name: 'Sardar Patel Institute of Technology, Mumbai',link:"https://www.spit.ac.in/"},
+  {logo : './assets/imgs/IIC.png', name: 'IIC SPIT',link:"https://iic.spit.ac.in/"}
   // {logo : './assets/imgs/ieee_cs_logo.jpg', name: 'Annasaheb Dange College of Engineering and Technology (ADCET) - Sangli'},
   // {logo : './assets/imgs/ieee_cs_logo.jpg', name: 'SVERI\'s College of Engineering - Pandharpur'},
   // {logo : './assets/imgs/ieee_cs_logo.jpg', name: 'Amrutvahini College of Engineering - Sangamner'},
@@ -244,6 +276,13 @@ const organizers = (function(){
     container.classList.add('orgContainer')
     Name.classList.add('orgName')
     colabLogo.classList.add('orgLogo')
+    
+    if(Institute.name == 'IEEE Computer Society Bombay Section'){
+       colabLogo.id = 'ieeecsbs';
+    }
+    if(Institute.name == 'IIC SPIT'){
+       colabLogo.id = 'iicspit';
+    }
    
     container.appendChild(colabLogo)
     container.appendChild(Name)
@@ -297,6 +336,21 @@ faqHeaders.forEach((faqHeader, i) => {
     close.classList.toggle('active');
   });
 });
+
+function openMobileMenu() {
+  document.querySelector('.mobile-menu').style.display = 'flex';
+}
+
+// Function to close the mobile menu
+function closeMobileMenu() {
+  document.querySelector('.mobile-menu').style.display = 'none';
+}
+
+// Event listener for the mobile menu button
+document.querySelector('.mobile-menu-button').addEventListener('click', openMobileMenu);
+
+// Event listener for the close button in the mobile menu
+document.querySelector('.close-mobile-menu').addEventListener('click', closeMobileMenu);
 
 //Particles
 particlesJS.load('particles-js', 'particles.json', function () {

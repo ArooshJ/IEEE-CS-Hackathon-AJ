@@ -50,6 +50,7 @@ body {
 .top{
   display: flex;
   flex-direction: row;
+  flex-wrap: wrap;
   width: 100%;
   /* border: 2px solid blue; */
   z-index: 16;
@@ -138,6 +139,8 @@ body {
   flex-shrink: 0;
   width: 33px;
   text-align: center;
+  display: none;
+  border: 2px solid red;
 }
 .collaborators{
   /* border: 2px solid blue; */
@@ -182,19 +185,23 @@ body {
 .navbar {
   display: flex;
   flex-direction: row;
+  flex-wrap: wrap;
   gap: 2rem;
   width: 65%;
   height: 100%;
   padding-top: 20px;
   padding-left: 10%;
+  transform: translateX(14%);
 }
 
-.segment,
-.index {
+.segment{
   display: flex;
   align-items: center;
   justify-content: center;
   transition: transform 300ms ease-in-out, color 300ms ease-in;
+}
+.index{
+  display: none;
 }
 
 .option:hover .index {
@@ -215,6 +222,19 @@ body {
 }
 
 .option:hover .segment {
+  background: linear-gradient(
+    to bottom,
+    var(--first-color),
+    var(--second-color)
+
+  );
+  background-size: 100%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.mobile-menu > .option:hover{
   background: linear-gradient(
     to bottom,
     var(--first-color),
@@ -269,7 +289,7 @@ body {
   grid-template-columns: repeat(2, 1fr);
   grid-template-rows: 1fr 4fr; */
 
-  background: url("./assets/imgs/Aeravat.png") no-repeat center center fixed;
+  background: url("./assets/imgs/Aeravat-logo.png") no-repeat center center fixed;
   background-size: cover;
   
   display: flex;
@@ -282,9 +302,64 @@ body {
   justify-self: center;
   align-self: center;
 }
+.presents{
+  /* border: 2px solid red; */
+  width: 100%;
+  text-align: center;
+  color: var(--second-color);
+  font-size: 20px;
+}
+
+#ieeecsbs{
+  background-color: var(--second-color);
+  height: 150px;
+}
+#iicspit{
+  height: 150px;
+}
+
+.mobile-menu-button {
+  display: none;
+  cursor: pointer;
+}
+
+/* Style for the pop-up menu */
+.mobile-menu {
+  display: none;
+  flex-direction: column;
+  width: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background: var(--background);
+  z-index: 999; /* Adjust the z-index as needed */
+}
+
+/* Additional styling for menu items in the pop-up menu */
+.mobile-menu a {
+  color: var(--second-color);
+  padding: 15px;
+  text-align: center;
+  text-decoration: none;
+  font-size: 1.2rem;
+}
+
+/* Style for the close button in the pop-up menu */
+.close-mobile-menu {
+  cursor: pointer;
+  padding: 15px;
+  text-align: center;
+  background-color: var(--background);
+  color: var(--second-color);
+  border: none;
+  font-size: 1.2rem;
+}
+
+
 
 #Aeravat{
   font-size: 160px;
+  margin: 10px 10px;
 }
 
 .registration {
@@ -349,7 +424,7 @@ body {
   margin: 14px 10px;
 
 }
-.home > b {
+.home > h1 {
   text-align: center;
   font-family: Farenheight;
   grid-column: 1/3;
@@ -416,6 +491,7 @@ body {
   position: relative;
   display: flex;
   flex-direction: column;
+  margin: 5px 5px;
   justify-content: end;
   padding-bottom: 10px;
   align-items: center;
@@ -469,7 +545,9 @@ body {
   font-size: 3rem;
 }
 .prize-grid {
+
   display: grid;
+  display: none;
   grid-template-columns: repeat(3, 1fr);
   grid-template-rows: repeat(6, 1fr);
   width: 75%;
@@ -477,6 +555,11 @@ body {
   column-gap: 3px;
   align-items: center;
   justify-content: center;
+}
+
+#prizepool{
+  transform: translateY(10%);
+  font-size: 70px;
 }
 .first-black,
 .second-black,
@@ -533,6 +616,7 @@ body {
   flex-direction: column;
   align-items: center;
   margin-bottom: 10vh;
+  transform: translateY(-10%);
 }
 .timeline > h1 {
   text-align: center;
@@ -694,7 +778,11 @@ body {
   color: var(--first-color);
   transform: rotateY(180deg);
 }
-.flip-card-back > button {
+.flip-card-back>a{
+text-decoration: none;
+color: var(--first-color);
+}
+.flip-card-back > a >button {
   font-size: 1.2rem;
   background-color: transparent;
   border: none;
@@ -704,7 +792,7 @@ body {
   cursor: pointer;
   transition: all 300ms ease-in-out;
 }
-.flip-card-back > button:hover {
+.flip-card-back > a > button:hover {
   background-color: var(--third-place);
   color: rgb(69, 69, 69);
 }
@@ -835,4 +923,419 @@ body {
   flex-direction: column;
   align-items: center;
   justify-content: center;
+}
+
+@media only screen and (max-width: 768px) {
+  /* 
+  .top {
+    flex-direction: column; /* Change to column layout for smaller screens 
+    align-items: flex-start; /* Align items to the start 
+    position: static; /* Remove fixed position for the navbar 
+    transform: none; /* Remove any transformations 
+    visibility: none;
+  } */
+
+  .navbar {
+    flex-direction: column; /* Stack navbar items vertically */
+    flex-wrap: wrap;
+    width: 100%; /* Full width for smaller screens */
+    padding-left: 0; /* Remove left padding */
+    padding-top: 10px; /* Adjust top padding */
+    transform:translateX(14%);
+  }
+
+  .top {
+    display: none;
+  }
+
+  /* Show a button to trigger the pop-up menu */
+  .mobile-menu-button {
+    display: block;
+    cursor: pointer;
+    color: #00bebe;
+    height: 40px;
+    width: 40px;
+    position: fixed;
+    top: 15px;
+    left: 15px;
+
+  }
+
+  /* Style for the pop-up menu */
+  .mobile-menu {
+    display: none;
+    flex-direction: column;
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    ;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(to bottom,var(--background),transparent, var(--background));
+    
+    z-index: 999; /* Adjust the z-index as needed */
+  }
+
+  /* Additional styling for menu items in the pop-up menu */
+  .mobile-menu a {
+    color: var(--second-color);
+    padding: 15px;
+    text-align: center;
+    text-decoration: none;
+    font-size: 1.2rem;
+  }
+
+  /* Style for the close button in the pop-up menu */
+  .close-mobile-menu {
+    cursor: pointer;
+    padding: 15px;
+    text-align: center;
+    background-color: var(--background);
+    color: var(--second-color);
+    border: none;
+    font-size: 1.2rem;
+  }
+
+
+  #Aeravat{
+    font-size: 50px;
+  }
+  #prizepool{
+    font-size: 50px;
+  }
+ .hackathon > h2{
+  font-size: 26px;
+ }
+
+  .logos{
+    /* border: 2px solid blue; */
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    flex-shrink: 3;
+    justify-content: space-around;
+    transform: translateY(20%);
+  }
+  .orgContainer{
+    /* border: 2px solid red; */
+    margin: 2px 2px;
+    display: flex;
+    flex-direction: column;
+    justify-content:  space-around;
+    align-items: center;
+    width: 150px;
+    height: 170px;
+  }
+  .orgName{
+    color: var(--second-color);
+    /* border: 2px solid salmon; */
+    margin: 7px 2px;
+    justify-content: center;
+    align-items: center;
+    
+  }
+  .orgLogo{
+    /* border: 2px solid magenta; */
+    height: 100px;
+    width: 100px;
+  }
+  
+
+  .collaborators{
+    /* border: 2px solid blue; */
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    flex-shrink: 3;
+    justify-content: space-around;
+    width: 60%;
+    transform: translateX(34%);
+  }
+  .colabContainer{
+    /* border: 2px solid red; */
+    margin: 11px 2px;
+    display: flex;
+    flex-direction: column;
+    justify-content:  space-around;
+    align-items: center;
+    width: 100px;
+    height: 120px;
+  }
+  .colabName{
+    color: var(--second-color);
+    /* border: 2px solid salmon; */
+    margin: 7px 2px;
+    justify-content: center;
+    align-items: center;
+    
+  }
+  .colabLogo{
+    /* border: 2px solid magenta; */
+    height: 80px;
+    width: 80px;
+  }
+  
+  
+.ieee-logo{
+  display: none;
+}
+
+  .right {
+    width: 100%; /* Make the right section full width */
+  }
+
+  .tracks {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+  }
+
+  /* Timeline */
+.timeline {
+  color: var(--second-color);
+  width: 85%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 10vh;
+}
+.timeline > h1 {
+  text-align: center;
+  font-family: Farenheight;
+  font-size: 3rem;
+}
+.timeline-grid {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  width: 80%;
+  height: 90%;
+  gap: 6rem;
+}
+.timeline-grid > .line {
+  position: absolute;
+  width: 74%;
+  height: 88%;
+  margin-top: auto;
+  margin-bottom: auto;
+  margin-left: auto;
+  margin-right: auto;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  border: 5px var(--second-color) solid;
+  border-left: none;
+  border-top: none;
+  border-bottom: none;
+  z-index: -1;
+  transform:translateX(-47%);
+}
+.bubble {
+  background-color: #00dada;
+  place-self: center;
+  color: var(--background);
+  width: 10rem;
+  height: 10rem;
+  border-radius: 50%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  transition: outline 100ms ease-in-out, filter 100ms ease-in-out,
+    transform 200ms ease-in-out, box-shadow 50ms ease-in;
+  box-shadow: 0 0 60px -30px #00f3f1;
+}
+.bubble > .date {
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  font-size: 2.5rem;
+  font-weight: 700;
+}
+.bubble > .month {
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  font-size: 1.5rem;
+  font-weight: 700;
+}
+
+.bubble > .detail {
+  text-align: center;
+  font-weight: 450;
+  font-size: 0.9rem;
+}
+.bubble:hover {
+  transform: scale(1.05);
+  filter: brightness(70%);
+  outline-offset: 2px;
+  outline-width: 3px;
+  outline-color: #fff;
+  outline-style: dotted;
+  box-shadow: 0 0 60px -10px #00bebe;
+}
+
+
+  /* Add any additional adjustments for smaller screens here */
+}
+@media only screen and (min-width:768px) and (max-width: 1140px){
+  
+ #Aeravat{
+  font-size: 108px;
+ }
+
+ .logos{
+  /* border: 2px solid blue; */
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  flex-shrink: 3;
+  justify-content: space-around;
+  transform: translateY(20%);
+}
+.orgContainer{
+  /* border: 2px solid red; */
+  margin: 2px 2px;
+  display: flex;
+  flex-direction: column;
+  justify-content:  space-around;
+  align-items: center;
+  width: 250px;
+  height: 270px;
+}
+.orgName{
+  color: var(--second-color);
+  /* border: 2px solid salmon; */
+  margin: 7px 2px;
+  justify-content: center;
+  align-items: center;
+  
+}
+.orgLogo{
+  /* border: 2px solid magenta; */
+  height: 200px;
+  width: 200px;
+}
+
+ 
+ .collaborators{
+  /* border: 2px solid blue; */
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  flex-shrink: 3;
+  justify-content: space-around;
+  width: 60%;
+  transform: translateX(34%);
+}
+.colabContainer{
+  /* border: 2px solid red; */
+  margin: 2px 2px;
+  display: flex;
+  flex-direction: column;
+  justify-content:  space-around;
+  align-items: center;
+  width: 250px;
+  height: 270px;
+}
+.colabName{
+  color: var(--second-color);
+  /* border: 2px solid salmon; */
+  margin: 7px 2px;
+  justify-content: center;
+  align-items: center;
+  
+}
+.colabLogo{
+  /* border: 2px solid magenta; */
+  height: 200px;
+  width: 200px;
+}
+
+/* Timeline */
+.timeline {
+  color: var(--second-color);
+  width: 85%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 10vh;
+}
+.timeline > h1 {
+  text-align: center;
+  font-family: Farenheight;
+  font-size: 3rem;
+}
+.timeline-grid {
+  position: relative;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+  width: 80%;
+  height: 90%;
+  gap: 6rem;
+}
+.timeline-grid > .line {
+  position: absolute;
+  width: 100%;
+  height: 60%;
+  margin-top: auto;
+  margin-bottom: auto;
+  margin-left: auto;
+  margin-right: auto;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  border: 5px var(--second-color) solid;
+  border-left: none;
+  z-index: -1;
+}
+.bubble {
+  background-color: #00dada;
+  place-self: center;
+  color: var(--background);
+  width: 10rem;
+  height: 10rem;
+  border-radius: 50%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  transition: outline 100ms ease-in-out, filter 100ms ease-in-out,
+    transform 200ms ease-in-out, box-shadow 50ms ease-in;
+  box-shadow: 0 0 60px -30px #00f3f1;
+}
+.bubble > .date {
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  font-size: 2.5rem;
+  font-weight: 700;
+}
+.bubble > .month {
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  font-size: 1.5rem;
+  font-weight: 700;
+}
+
+.bubble > .detail {
+  text-align: center;
+  font-weight: 450;
+  font-size: 0.9rem;
+}
+.bubble:hover {
+  transform: scale(1.05);
+  filter: brightness(70%);
+  outline-offset: 2px;
+  outline-width: 3px;
+  outline-color: #fff;
+  outline-style: dotted;
+  box-shadow: 0 0 60px -10px #00bebe;
+}
+
+
+ 
+
+  /* Add any additional adjustments for smaller screens here */
 }
