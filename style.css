@@ -1054,7 +1054,7 @@ color: var(--first-color);
   }
   .colabContainer{
     /* border: 2px solid red; */
-    margin: 11px 2px;
+    margin: 50px 2px;`
     display: flex;
     flex-direction: column;
     justify-content:  space-around;

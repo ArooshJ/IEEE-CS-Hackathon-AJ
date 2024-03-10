@@ -172,23 +172,21 @@ rearrangeEventsForMobile();
 window.addEventListener('resize', rearrangeEventsForMobile);
 
 const colabs = [
-  {logo : './assets/imgs/DJSCE_Logo.png', name: 'Dwarkadas Jivanlal Sanghavi College of Engineering - Mumbai', link: ""},
-  {logo : './assets/imgs/fcrcoe.png', name: 'Fr. Conceição Rodrigues College of Engineering (CRCE) - Mumbai', link:""},
-  {logo : './assets/imgs/Ramrao_Adik_Institute_of_Technology.png', name: 'Ramrao Adik Institute of Technology (RAIT) - Navi Mumbai',link:""},
+  {logo : './assets/imgs/DJSCE_Logo.png', name: 'Dwarkadas Jivanlal Sanghavi College of Engineering - Mumbai', link: "https://www.djsce.ac.in/"},
+  {logo : './assets/imgs/fcrcoe.png', name: 'Fr. Conceição Rodrigues College of Engineering (CRCE) - Mumbai', link:"http://www.frcrce.ac.in/"},
+  {logo : './assets/imgs/Ramrao_Adik_Institute_of_Technology.png', name: 'Ramrao Adik Institute of Technology (RAIT) - Navi Mumbai',link:"https://dypatil.edu/schools/ramrao-adik-institute-of-technology?gad_source=1&gclid=Cj0KCQiArrCvBhCNARIsAOkAGcUODwqB0I7s-z18Mjbf9t5nqfg2xZnfYZkzaUBDfeyMutuuGyoONawaAuw7EALw_wcB"},
   
-  {logo : './assets/imgs/ADCET.jpg', name: 'Annasaheb Dange College of Engineering and Technology (ADCET) - Sangli',link:""},
-  {logo : './assets/imgs/sveri.png', name: 'SVERI\'s College of Engineering - Pandharpur',link:""},
-  {logo : './assets/imgs/AVCOE.png', name: 'Amrutvahini College of Engineering - Sangamner',link:""},
+  {logo : './assets/imgs/ADCET.jpg', name: 'Annasaheb Dange College of Engineering and Technology (ADCET) - Sangli',link:"https://www.adcet.ac.in/"},
+  {logo : './assets/imgs/sveri.png', name: 'SVERI\'s College of Engineering - Pandharpur',link:"https://coe.sveri.ac.in/"},
+  {logo : './assets/imgs/AVCOE.png', name: 'Amrutvahini College of Engineering - Sangamner',link:"https://www.avcoe.org/"},
 ]
 const orgs = [
-  {logo : './assets/imgs/ieee-bs.png', name: 'IEEE Bombay Section',link:""},
-  {logo : './assets/imgs/ieeecs.png', name: 'IEEE Computer Society Bombay Section',link:""},
-  {logo : './assets/imgs/ieee_cs_logo.jpg', name: 'IEEE CS SPIT',link:""},
-  {logo : './assets/imgs/SPIT.png', name: 'Sardar Patel Institute of Technology, Mumbai',link:"https://www.spit.ac.in/"},
-  {logo : './assets/imgs/IIC.png', name: 'IIC SPIT',link:"https://iic.spit.ac.in/"}
-  // {logo : './assets/imgs/ieee_cs_logo.jpg', name: 'Annasaheb Dange College of Engineering and Technology (ADCET) - Sangli'},
-  // {logo : './assets/imgs/ieee_cs_logo.jpg', name: 'SVERI\'s College of Engineering - Pandharpur'},
-  // {logo : './assets/imgs/ieee_cs_logo.jpg', name: 'Amrutvahini College of Engineering - Sangamner'},
+  {logo : './assets/imgs/ieee-bs.png', name: 'IEEE Bombay Section',link:"https://ieeebombay.org/"},
+  {logo : './assets/imgs/ieeecs.png', name: 'IEEE Computer Society Bombay Section',link:"https://r10.ieee.org/bombay-cs/"},
+  {logo : './assets/imgs/ieeecsnobg.png', name: 'IEEE CS SPIT',link:""},
+  {logo : './assets/imgs/SPITnobg.png', name: 'Sardar Patel Institute of Technology, Mumbai',link:"https://www.spit.ac.in/"},
+  {logo : './assets/imgs/IICnobg.png', name: 'IIC SPIT',link:"https://iic.spit.ac.in/"}
+  
 ]
 
 const navbar = (function () {
