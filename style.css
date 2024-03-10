@@ -311,11 +311,13 @@ body {
 }
 
 #ieeecsbs{
-  background-color: var(--second-color);
   height: 150px;
 }
 #iicspit{
   height: 150px;
+}
+#ieeebs{
+  height:150px;
 }
 
 .mobile-menu-button {
@@ -905,12 +907,14 @@ color: var(--first-color);
 .links{
   display: flex;
   flex-direction: row;
-  justify-content: space-around;
+  justify-content: center;
   width:100%;
+  margin: 2px 2px;
 }
 .links a{
   text-decoration: none;
   color: var(--second-color);
+  margin: 5px 5px;
 }
 .insta> a{
   display: flex;
@@ -923,6 +927,17 @@ color: var(--first-color);
   flex-direction: column;
   align-items: center;
   justify-content: center;
+}
+.insta{
+  margin: 8px 24px;
+}
+.LinkedIn{
+  margin: 8px 24px;;
+}
+.credits{
+  font-size: 10px;
+  margin: 6px 2px;
+  transform: translateY(100%);
 }
 
 @media only screen and (max-width: 768px) {
@@ -1054,7 +1069,7 @@ color: var(--first-color);
   }
   .colabContainer{
     /* border: 2px solid red; */
-    margin: 50px 2px;`
+    margin: 50px 2px;
     display: flex;
     flex-direction: column;
     justify-content:  space-around;

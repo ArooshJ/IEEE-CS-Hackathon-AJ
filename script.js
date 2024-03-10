@@ -181,8 +181,8 @@ const colabs = [
   {logo : './assets/imgs/AVCOE.png', name: 'Amrutvahini College of Engineering - Sangamner',link:"https://www.avcoe.org/"},
 ]
 const orgs = [
-  {logo : './assets/imgs/ieee-bs.png', name: 'IEEE Bombay Section',link:"https://ieeebombay.org/"},
-  {logo : './assets/imgs/ieeecs.png', name: 'IEEE Computer Society Bombay Section',link:"https://r10.ieee.org/bombay-cs/"},
+  {logo : './assets/imgs/ieeebs.png', name: 'IEEE Bombay Section',link:"https://ieeebombay.org/"},
+  {logo : './assets/imgs/ieeecsbs (2).png', name: 'IEEE Computer Society Bombay Section',link:"https://r10.ieee.org/bombay-cs/"},
   {logo : './assets/imgs/ieeecsnobg.png', name: 'IEEE CS SPIT',link:""},
   {logo : './assets/imgs/SPITnobg.png', name: 'Sardar Patel Institute of Technology, Mumbai',link:"https://www.spit.ac.in/"},
   {logo : './assets/imgs/IICnobg.png', name: 'IIC SPIT',link:"https://iic.spit.ac.in/"}
@@ -280,6 +280,9 @@ const organizers = (function(){
     }
     if(Institute.name == 'IIC SPIT'){
        colabLogo.id = 'iicspit';
+    }
+    if(Institute.name == 'IEEE Bombay Section'){
+       colabLogo.id = 'ieeebs';
     }
    
     container.appendChild(colabLogo)
