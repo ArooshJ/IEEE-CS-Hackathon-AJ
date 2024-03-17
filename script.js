@@ -353,6 +353,34 @@ document.querySelector('.mobile-menu-button').addEventListener('click', openMobi
 // Event listener for the close button in the mobile menu
 document.querySelector('.close-mobile-menu').addEventListener('click', closeMobileMenu);
 
+
+const targetDate = new Date('2024-03-22').getTime();
+
+const countdown = setInterval(() => {
+  const now = new Date().getTime();
+  const distance = targetDate - now;
+
+  const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+  const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+  const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+  const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+  document.getElementById('days').innerText = days.toString().padStart(2, '0');
+  document.getElementById('hours').innerText = hours.toString().padStart(2, '0');
+  document.getElementById('minutes').innerText = minutes.toString().padStart(2, '0');
+  document.getElementById('seconds').innerText = seconds.toString().padStart(2, '0');
+
+  if (distance < 0) {
+    clearInterval(countdown);
+    document.getElementById('days').innerText = '00';
+    document.getElementById('hours').innerText = '00';
+    document.getElementById('minutes').innerText = '00';
+    document.getElementById('seconds').innerText = '00';
+  }
+}, 1000);
+
+
+
 //Particles
 particlesJS.load('particles-js', 'particles.json', function () {
   console.log('callback - particles.js config loaded');
